@@ -3,11 +3,13 @@ MySQL with C++
 
 Steps:
 
-1. Download this code
+1. Change database details in database-detail.h file.
+
+2. Download this code
     $ git clone https://github.com/megha55/mysql-with-cpp.git
 
-2. To run example
+3. To run example
     $ make
 
-3. For installing MySQL Connector for C++
+4. For installing MySQL Connector for C++
     $ make install
