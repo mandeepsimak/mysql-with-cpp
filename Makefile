@@ -62,6 +62,10 @@ mysql: $(L_DATABASE)
 mysql-run: mysql
 	./mysql
 
+install:
+	sudo apt-get install libmysql++
+	sudo apt-get install libmysql++-dev
+
 # ====================================================================
 # 	Clean .o, .html files
 # ====================================================================
