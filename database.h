@@ -19,10 +19,7 @@
  *  Include database-detail.h and other files
  *------------------------------------------------------------------*/
 
-//#include <iostream>
-//#include <mysql.h>
 #include "header.h"
-
 #include "database-detail.h"
 
 /**
@@ -39,11 +36,8 @@ class MySQL
         MYSQL *connect;
         MYSQL_RES *res_set;
         MYSQL_ROW row;
-        
-        /** Table names */
 
-        int i, j;
-        string query;
+        unsigned int i;
 
     public:
         /** MySQL Constructor */

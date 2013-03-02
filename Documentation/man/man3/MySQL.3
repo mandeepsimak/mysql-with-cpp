@@ -1,0 +1,156 @@
+.TH "MySQL" 3 "Sat Mar 2 2013" "MySQL with C++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MySQL \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <database\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMySQL\fP ()"
+.br
+.ti -1c
+.RI "void \fBShowTables\fP ()"
+.br
+.ti -1c
+.RI "\fB~MySQL\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "MYSQL * \fBconnect\fP"
+.br
+.ti -1c
+.RI "MYSQL_RES * \fBres_set\fP"
+.br
+.ti -1c
+.RI "MYSQL_ROW \fBrow\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBi\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+.PP
+ 
+.SS "Include \fBdatabase-detail\&.h\fP and other files"
+.PP
+.PP
+ Class: \fBMySQL\fP 
+.SH "Description: \fBMySQL\fP class for database accessability"
+.PP
+
+.PP
+Definition at line 32 of file database\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MySQL::MySQL ()"
+\fBMySQL\fP Constructor
+.PP
+.PP
+ 
+.SS "Include mysql\&.h file local header file(declaration of class)"
+.PP
+.PP
+ Class: \fBMySQL\fP Method: \fBMySQL\fP :: \fBMySQL()\fP 
+.SS "Description: Constructor to initialize database conectivity"
+
+.PP
+Definition at line 32 of file database\&.cc\&.
+.PP
+.nf
+{
+    connect = mysql_init(NULL);
+    if ( !connect )
+    {
+        cout << 'MySQL Initialization Failed';
+    }   
+
+    connect = mysql_real_connect(connect, SERVER, USER, PASSWORD, DATABASE, 0,NULL,0);
+    
+    if ( connect )
+    {
+        cout << 'Connection Succeeded\n';
+    }
+    
+    else
+    {
+        cout << 'Connection Failed\n';
+    }
+}
+.fi
+.SS "MySQL::~MySQL ()"
+\fBMySQL\fP Destructor
+.PP
+.PP
+ Class: \fBMySQL\fP Method: \fBMySQL\fP :: \fB~MySQL()\fP Description: Destructor of \fBMySQL\fP class for closing mysql 
+.SS "connection"
+
+.PP
+Definition at line 89 of file database\&.cc\&.
+.PP
+.nf
+{
+    mysql_close (connect);
+}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void MySQL::ShowTables ()"
+Function to show tables in database
+.PP
+.PP
+ Class: \fBMySQL\fP Method: \fBMySQL\fP :: \fBShowTables()\fP 
+.SS "Description: Show tables in database"
+Add \fBMySQL\fP Query 
+.PP
+Definition at line 61 of file database\&.cc\&.
+.PP
+.nf
+{
+    mysql_query (connect,'show tables');                              
+                                                                          
+    i = 0;
+                                                                         
+    res_set = mysql_store_result(connect);                              
+                                                                          
+    unsigned int numrows = mysql_num_rows(res_set);                   
+                                                                          
+    cout << ' Tables in ' << DATABASE << ' database ' << endl;        
+                                                                         
+    while (((row=mysql_fetch_row(res_set)) != NULL))
+    {                                                                 
+        cout << row[i] << endl;                                       
+    }
+}
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "MYSQL* MySQL::connect\fC [protected]\fP"
+\fBMySQL\fP connectivity Variables 
+.PP
+Definition at line 36 of file database\&.h\&.
+.SS "unsigned int MySQL::i\fC [protected]\fP"
+
+.PP
+Definition at line 40 of file database\&.h\&.
+.SS "MYSQL_RES* MySQL::res_set\fC [protected]\fP"
+
+.PP
+Definition at line 37 of file database\&.h\&.
+.SS "MYSQL_ROW MySQL::row\fC [protected]\fP"
+
+.PP
+Definition at line 38 of file database\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MySQL with C++ from the source code\&.

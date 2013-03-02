@@ -35,13 +35,15 @@ MySQL :: MySQL()
     if ( !connect )
     {
         cout << "MySQL Initialization Failed";
-        //return 1;
     }   
+
     connect = mysql_real_connect(connect, SERVER, USER, PASSWORD, DATABASE, 0,NULL,0);
+    
     if ( connect )
     {
-        //cout << "Connection Succeeded\n";
+        cout << "Connection Succeeded\n";
     }
+    
     else
     {
         cout << "Connection Failed\n";
@@ -58,17 +60,18 @@ MySQL :: MySQL()
 
 void MySQL :: ShowTables()
 {
+    /** Add MySQL Query */
     mysql_query (connect,"show tables");                              
                                                                           
-    unsigned int i=0;                                                 
+    i = 0;
                                                                          
-    res_set=mysql_store_result(connect);                              
+    res_set = mysql_store_result(connect);                              
                                                                           
     unsigned int numrows = mysql_num_rows(res_set);                   
                                                                           
     cout << " Tables in " << DATABASE << " database " << endl;        
                                                                          
-    while (((row=mysql_fetch_row(res_set)) !=NULL))                   
+    while (((row=mysql_fetch_row(res_set)) != NULL))
     {                                                                 
         cout << row[i] << endl;                                       
     }
@@ -78,7 +81,8 @@ void MySQL :: ShowTables()
  *--------------------------------------------------------------------
  *       Class:  MySQL
  *      Method:  MySQL :: ~MySQL()
- * Description:  Destructor of MySQL class
+ * Description:  Destructor of MySQL class for closing mysql
+ *               connection
  *--------------------------------------------------------------------
  */
 

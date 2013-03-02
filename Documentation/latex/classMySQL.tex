@@ -1,0 +1,181 @@
+\hypertarget{classMySQL}{\section{My\-S\-Q\-L Class Reference}
+\label{classMySQL}\index{My\-S\-Q\-L@{My\-S\-Q\-L}}
+}
+
+
+{\ttfamily \#include $<$database.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMySQL_abc2ca1b4be66f7e588e00dab96d91d43}{My\-S\-Q\-L} ()
+\item 
+void \hyperlink{classMySQL_a42c6e9cd84c97a0fb154ad682a4b4a4e}{Show\-Tables} ()
+\item 
+\hyperlink{classMySQL_ab27885d0695900ade2b7a0d57375a9bf}{$\sim$\-My\-S\-Q\-L} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+M\-Y\-S\-Q\-L $\ast$ \hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect}
+\item 
+M\-Y\-S\-Q\-L\-\_\-\-R\-E\-S $\ast$ \hyperlink{classMySQL_abfe0a8f3fe7af0a582be5882f0afe69d}{res\-\_\-set}
+\item 
+M\-Y\-S\-Q\-L\-\_\-\-R\-O\-W \hyperlink{classMySQL_a56c73e3942ca040f13164e957a41a340}{row}
+\item 
+unsigned int \hyperlink{classMySQL_ad7a1cc7a8e202d4d19468731ed22d74a}{i}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+ \subsubsection*{Include \hyperlink{database-detail_8h}{database-\/detail.\-h} and other files}
+
+
+
+ Class\-: \hyperlink{classMySQL}{My\-S\-Q\-L} \subsection*{Description\-: \hyperlink{classMySQL}{My\-S\-Q\-L} class for database accessability}
+
+Definition at line 32 of file database.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMySQL_abc2ca1b4be66f7e588e00dab96d91d43}{\index{My\-S\-Q\-L@{My\-S\-Q\-L}!My\-S\-Q\-L@{My\-S\-Q\-L}}
+\index{My\-S\-Q\-L@{My\-S\-Q\-L}!MySQL@{My\-S\-Q\-L}}
+\subsubsection[{My\-S\-Q\-L}]{\setlength{\rightskip}{0pt plus 5cm}My\-S\-Q\-L\-::\-My\-S\-Q\-L (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMySQL_abc2ca1b4be66f7e588e00dab96d91d43}
+\hyperlink{classMySQL}{My\-S\-Q\-L} Constructor
+
+
+
+ \subsubsection*{Include mysql.\-h file local header file(declaration of class)}
+
+
+
+ Class\-: \hyperlink{classMySQL}{My\-S\-Q\-L} Method\-: \hyperlink{classMySQL}{My\-S\-Q\-L} \-:\-: \hyperlink{classMySQL_abc2ca1b4be66f7e588e00dab96d91d43}{My\-S\-Q\-L()} \subsubsection*{Description\-: Constructor to initialize database conectivity}
+
+Definition at line 32 of file database.\-cc.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect} = mysql\_init(NULL);
+    \textcolor{keywordflow}{if} ( !\hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect} )
+    \{
+        cout << \textcolor{stringliteral}{"MySQL Initialization Failed"};
+    \}   
+
+    \hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect} = mysql\_real\_connect(\hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect}, \hyperlink{database-detail_8h_a24cd3c37a165a8c4626d9e78df4574ff}{SERVER}, \hyperlink{database-detail_8h_a8bfbbf31b7d3c07215440d18a064b7f4}{USER},
+       \hyperlink{database-detail_8h_a9e8538fad4eee548302ad9f60e6d47ca}{PASSWORD}, \hyperlink{database-detail_8h_a39dc88d73783e112dbfcf98adbdbefa6}{DATABASE}, 0,NULL,0);
+    
+    \textcolor{keywordflow}{if} ( \hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect} )
+    \{
+        cout << \textcolor{stringliteral}{"Connection Succeeded\(\backslash\)n"};
+    \}
+    
+    \textcolor{keywordflow}{else}
+    \{
+        cout << \textcolor{stringliteral}{"Connection Failed\(\backslash\)n"};
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{classMySQL_ab27885d0695900ade2b7a0d57375a9bf}{\index{My\-S\-Q\-L@{My\-S\-Q\-L}!$\sim$\-My\-S\-Q\-L@{$\sim$\-My\-S\-Q\-L}}
+\index{$\sim$\-My\-S\-Q\-L@{$\sim$\-My\-S\-Q\-L}!MySQL@{My\-S\-Q\-L}}
+\subsubsection[{$\sim$\-My\-S\-Q\-L}]{\setlength{\rightskip}{0pt plus 5cm}My\-S\-Q\-L\-::$\sim$\-My\-S\-Q\-L (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMySQL_ab27885d0695900ade2b7a0d57375a9bf}
+\hyperlink{classMySQL}{My\-S\-Q\-L} Destructor
+
+
+
+ Class\-: \hyperlink{classMySQL}{My\-S\-Q\-L} Method\-: \hyperlink{classMySQL}{My\-S\-Q\-L} \-:\-: \hyperlink{classMySQL_ab27885d0695900ade2b7a0d57375a9bf}{$\sim$\-My\-S\-Q\-L()} Description\-: Destructor of \hyperlink{classMySQL}{My\-S\-Q\-L} class for closing mysql \subsubsection*{connection}
+
+Definition at line 89 of file database.\-cc.
+
+
+\begin{DoxyCode}
+\{
+    mysql\_close (\hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect});
+\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMySQL_a42c6e9cd84c97a0fb154ad682a4b4a4e}{\index{My\-S\-Q\-L@{My\-S\-Q\-L}!Show\-Tables@{Show\-Tables}}
+\index{Show\-Tables@{Show\-Tables}!MySQL@{My\-S\-Q\-L}}
+\subsubsection[{Show\-Tables}]{\setlength{\rightskip}{0pt plus 5cm}void My\-S\-Q\-L\-::\-Show\-Tables (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMySQL_a42c6e9cd84c97a0fb154ad682a4b4a4e}
+Function to show tables in database
+
+
+
+ Class\-: \hyperlink{classMySQL}{My\-S\-Q\-L} Method\-: \hyperlink{classMySQL}{My\-S\-Q\-L} \-:\-: \hyperlink{classMySQL_a42c6e9cd84c97a0fb154ad682a4b4a4e}{Show\-Tables()} \subsubsection*{Description\-: Show tables in database}Add \hyperlink{classMySQL}{My\-S\-Q\-L} Query 
+
+Definition at line 61 of file database.\-cc.
+
+
+\begin{DoxyCode}
+\{
+    mysql\_query (\hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect},\textcolor{stringliteral}{"show tables"});                              
+                                                                          
+    \hyperlink{classMySQL_ad7a1cc7a8e202d4d19468731ed22d74a}{i} = 0;
+                                                                         
+    \hyperlink{classMySQL_abfe0a8f3fe7af0a582be5882f0afe69d}{res\_set} = mysql\_store\_result(\hyperlink{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{connect});                       
+             
+                                                                          
+    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} numrows = mysql\_num\_rows(\hyperlink{classMySQL_abfe0a8f3fe7af0a582be5882f0afe69d}{res\_set});                   
+                                                                          
+    cout << \textcolor{stringliteral}{" Tables in "} << \hyperlink{database-detail_8h_a39dc88d73783e112dbfcf98adbdbefa6}{DATABASE} << \textcolor{stringliteral}{" database "} << endl;        
+                                                                         
+    \textcolor{keywordflow}{while} (((\hyperlink{classMySQL_a56c73e3942ca040f13164e957a41a340}{row}=mysql\_fetch\_row(\hyperlink{classMySQL_abfe0a8f3fe7af0a582be5882f0afe69d}{res\_set})) != NULL))
+    \{                                                                 
+        cout << \hyperlink{classMySQL_a56c73e3942ca040f13164e957a41a340}{row}[\hyperlink{classMySQL_ad7a1cc7a8e202d4d19468731ed22d74a}{i}] << endl;                                       
+    \}
+\}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}{\index{My\-S\-Q\-L@{My\-S\-Q\-L}!connect@{connect}}
+\index{connect@{connect}!MySQL@{My\-S\-Q\-L}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}M\-Y\-S\-Q\-L$\ast$ My\-S\-Q\-L\-::connect\hspace{0.3cm}{\ttfamily [protected]}}}\label{classMySQL_a56a2a9159f6d46d8b3bd648e1f08e2b1}
+\hyperlink{classMySQL}{My\-S\-Q\-L} connectivity Variables 
+
+Definition at line 36 of file database.\-h.
+
+\hypertarget{classMySQL_ad7a1cc7a8e202d4d19468731ed22d74a}{\index{My\-S\-Q\-L@{My\-S\-Q\-L}!i@{i}}
+\index{i@{i}!MySQL@{My\-S\-Q\-L}}
+\subsubsection[{i}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int My\-S\-Q\-L\-::i\hspace{0.3cm}{\ttfamily [protected]}}}\label{classMySQL_ad7a1cc7a8e202d4d19468731ed22d74a}
+
+
+Definition at line 40 of file database.\-h.
+
+\hypertarget{classMySQL_abfe0a8f3fe7af0a582be5882f0afe69d}{\index{My\-S\-Q\-L@{My\-S\-Q\-L}!res\-\_\-set@{res\-\_\-set}}
+\index{res\-\_\-set@{res\-\_\-set}!MySQL@{My\-S\-Q\-L}}
+\subsubsection[{res\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}M\-Y\-S\-Q\-L\-\_\-\-R\-E\-S$\ast$ My\-S\-Q\-L\-::res\-\_\-set\hspace{0.3cm}{\ttfamily [protected]}}}\label{classMySQL_abfe0a8f3fe7af0a582be5882f0afe69d}
+
+
+Definition at line 37 of file database.\-h.
+
+\hypertarget{classMySQL_a56c73e3942ca040f13164e957a41a340}{\index{My\-S\-Q\-L@{My\-S\-Q\-L}!row@{row}}
+\index{row@{row}!MySQL@{My\-S\-Q\-L}}
+\subsubsection[{row}]{\setlength{\rightskip}{0pt plus 5cm}M\-Y\-S\-Q\-L\-\_\-\-R\-O\-W My\-S\-Q\-L\-::row\hspace{0.3cm}{\ttfamily [protected]}}}\label{classMySQL_a56c73e3942ca040f13164e957a41a340}
+
+
+Definition at line 38 of file database.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{database_8h}{database.\-h}\item 
+\hyperlink{database_8cc}{database.\-cc}\end{DoxyCompactItemize}
