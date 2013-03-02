@@ -1,7 +1,7 @@
 /*
  * ===================================================================
  *
- *       Filename:  mysql.h
+ *       Filename:  database.h
  *
  *    Description:  Declaring MySQL class for using database.
  *

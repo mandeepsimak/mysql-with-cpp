@@ -1,7 +1,7 @@
 /*
  * ===================================================================
  *
- *       Filename:  mysql-main.cpp
+ *       Filename:  database-main.cpp
  *
  *    Description:  Main Method
  *

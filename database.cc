@@ -1,7 +1,7 @@
 /*
  * ===================================================================
  *
- *       Filename:  mysql.cc
+ *       Filename:  database.cc
  *
  *    Description:  Definition of MySQL Class for accessing database
  *

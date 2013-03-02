@@ -1,7 +1,7 @@
 /*
  * ===================================================================
  *
- *       Filename:  database.h
+ *       Filename:  database-detail.h
  *
  *    Description:  Database details like database name, username,
  *                  password.
